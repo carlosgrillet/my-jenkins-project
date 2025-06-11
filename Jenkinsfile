@@ -1,8 +1,10 @@
-parameters {
-  choice(name: 'BRANCH_NAME', choices: ['development', 'staging', 'prod'], description: 'Select the branch')
-  string(name: 'PIPELINE_TYPE', defaultValue: 'proudction', description: 'Type of pipeline')
-  booleanParam(name: 'VERBOSE', defaultValue: false, description: 'Enable verbose output?')
-}
+properties([
+  parameters([
+    choice(name: 'BRANCH_NAME', choices: ['development', 'staging', 'prod'], description: 'Select the branch')
+    string(name: 'PIPELINE_TYPE', defaultValue: 'proudction', description: 'Type of pipeline')
+    booleanParam(name: 'VERBOSE', defaultValue: false, description: 'Enable verbose output?')
+  ])
+])
 
 node (){
   def apps = [
